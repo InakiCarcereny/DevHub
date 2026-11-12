@@ -49,5 +49,5 @@ export default tseslint.config(
     },
   },
   eslintConfigPrettier,
-  storybook.configs["flat/recommended"],
+  ...storybook.configs["flat/recommended"],
 );
