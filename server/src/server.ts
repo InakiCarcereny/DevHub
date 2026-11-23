@@ -1,4 +1,5 @@
 import "dotenv/config";
+import "@/models";
 import { createApp } from "@/app";
 import sequelize from "@/config/database";
 
