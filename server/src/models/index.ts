@@ -5,7 +5,9 @@ import Post from "@/models/post";
 import PostLike from "@/models/post_like";
 import PostShare from "@/models/post_share";
 import Profile from "@/models/profile";
+import Tag from "@/models/tag";
 import User from "@/models/user";
+import UserTagFollow from "@/models/user_tag_follow";
 
 Profile.belongsTo(User, { foreignKey: "id", onDelete: "CASCADE" });
 User.hasOne(Profile, { foreignKey: "id", onDelete: "CASCADE" });
@@ -38,4 +40,20 @@ Comment.hasMany(CommentLike, { foreignKey: "idComment", onDelete: "CASCADE" });
 CommentLike.belongsTo(User, { foreignKey: "idUser", onDelete: "CASCADE" });
 User.hasMany(CommentLike, { foreignKey: "idUser", onDelete: "CASCADE" });
 
-export { Account, Comment, CommentLike, Post, PostLike, PostShare, Profile, User };
+UserTagFollow.belongsTo(Tag, { foreignKey: "idTag", onDelete: "CASCADE" });
+Tag.hasMany(UserTagFollow, { foreignKey: "idTag", onDelete: "CASCADE" });
+UserTagFollow.belongsTo(User, { foreignKey: "idUser", onDelete: "CASCADE" });
+User.hasMany(UserTagFollow, { foreignKey: "idUser", onDelete: "CASCADE" });
+
+export {
+  Account,
+  Comment,
+  CommentLike,
+  Post,
+  PostLike,
+  PostShare,
+  Profile,
+  Tag,
+  User,
+  UserTagFollow,
+};
