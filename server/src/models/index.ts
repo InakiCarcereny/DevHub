@@ -2,7 +2,9 @@ import Post from "@/models/post";
 import PostLike from "@/models/post_like";
 import PostShare from "@/models/post_share";
 import Profile from "@/models/profile";
+import Tag from "@/models/tag";
 import User from "@/models/user";
+import UserTagFollow from "@/models/user_tag_follow";
 
 Profile.belongsTo(User, { foreignKey: "id", onDelete: "CASCADE" });
 User.hasOne(Profile, { foreignKey: "id", onDelete: "CASCADE" });
